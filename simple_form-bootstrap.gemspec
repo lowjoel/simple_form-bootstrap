@@ -22,8 +22,8 @@ SUMMARY
   s.add_dependency 'bootstrap-sass', '~> 3'
   s.add_dependency 'simple_form', '>= 3.1.0'
 
-  s.add_dependency(%q<activemodel>, ["~> 4.0"])
-  s.add_dependency(%q<actionpack>, ["~> 4.0"])
+  s.add_dependency 'activemodel', '~> 4.0'
+  s.add_dependency 'actionpack', '~> 4.0'
 
   if s.respond_to? :required_rubygems_version=
     s.required_rubygems_version = Gem::Requirement.new('>= 0')
