@@ -7,6 +7,7 @@
   // Machine-readable formats used to store dates in hidden fields
   var DATE_FORMAT = 'YYYY-MM-DD';
   var DATETIME_FORMAT = 'YYYY-MM-DDTHH:mm:ssZZ';
+  var DATETIME_FORMAT_RAILS = 'YYYY-MM-DD HH:mm:ss ZZ';
 
   var oldDateTimePicker = $.fn.datetimepicker;
   if (!oldDateTimePicker) {
@@ -37,10 +38,10 @@
 
     initialiseFormat: function() {
       var $textField = $(this);
-      var displayFormat = $div.data('dateFormat');
+      var displayFormat = $textField.data('dateFormat');
 
       // Parse date in field (if provided)
-      var thisDate = moment($textField.val(), ['YYYY-MM-DD HH:mm:ss ZZ', displayFormat]);
+      var thisDate = moment($textField.val(), [DATETIME_FORMAT_RAILS, displayFormat]);
       if (thisDate.isValid()) {
         // Set displayed text field
         $textField.val(thisDate.format(displayFormat));

@@ -16,13 +16,13 @@ class SimpleForm::Bootstrap::Inputs::DateTimeInput < SimpleForm::Inputs::Base
     text_field_options[:class]    << 'bootstrap-datepicker'
     text_field_options[:class]    << 'bootstrap-timepicker' if input_type == :bootstrap_date_time
     text_field_options[:value]   ||= format_date(value(object), format)
+    text_field_options[:data]      = { 'date-format' => strftime_to_momentjs_format(format) }
 
     text_field_group_classes       = text_field_options[:class].dup
     text_field_group_classes.delete('form-control')
 
     return_string = <<-END_INPUT
-      <div class="input-group #{text_field_group_classes.join(' ')}" style="display: none"
-        data-date-format="#{strftime_to_momentjs_format(format)}">
+      <div class="input-group #{text_field_group_classes.join(' ')}" style="display: none">
         #{@builder.hidden_field(attribute_name, text_field_options.to_hash)}
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
       </div>
