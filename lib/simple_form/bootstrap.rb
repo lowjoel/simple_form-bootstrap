@@ -20,4 +20,7 @@ module SimpleForm::Bootstrap
   @@error_method = :first
 end
 
-require 'simple_form/bootstrap/railtie' if defined?(Rails)
+if defined?(Rails)
+  require 'simple_form/bootstrap/railtie'
+  require 'simple_form/bootstrap/engine'
+end

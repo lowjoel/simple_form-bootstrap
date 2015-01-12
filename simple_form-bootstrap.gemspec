@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors = ['Joel Low']
   s.date = '2015-01-12'
   s.email = 'joel@joelsplace.sg'
-  s.files = ['Rakefile'] + Dir['{lib,test}/**/*']
+  s.files = ['Rakefile'] + Dir['{app,lib,test}/**/*']
   s.test_files = Dir['test/**/*']
   s.homepage = 'https://github.com/lowjoel/simple_form-bootstrap'
   s.require_paths = ['lib']
