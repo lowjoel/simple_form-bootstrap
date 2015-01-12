@@ -1,5 +1,5 @@
 $:.push("#{__dir__}/lib")
-require 'simple_form'
+require 'simple_form/bootstrap'
 require 'simple_form/bootstrap/version'
 
 Gem::Specification.new do |s|
@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = ['Joel Low']
   s.date = '2015-01-12'
   s.email = 'joel@joelsplace.sg'
-  s.files = ['Rakefile'] + Dir['lib/**/*']
+  s.files = ['Rakefile'] + Dir['{lib,test}/**/*']
   s.test_files = Dir['test/**/*']
   s.homepage = 'https://github.com/lowjoel/simple_form-bootstrap'
   s.require_paths = ['lib']
