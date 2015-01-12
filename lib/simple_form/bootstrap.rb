@@ -8,4 +8,7 @@ module SimpleForm::Bootstrap
   end
 
   # Configuration options
+  extend SimpleForm::Bootstrap::Setup
 end
+
+require 'simple_form/bootstrap/railtie' if defined?(Rails)
