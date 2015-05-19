@@ -27,6 +27,7 @@ SUMMARY
 
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rspec-rails', '~> 3'
+  s.add_development_dependency 'rspec-html-matchers'
 
   if s.respond_to? :required_rubygems_version=
     s.required_rubygems_version = Gem::Requirement.new('>= 0')
