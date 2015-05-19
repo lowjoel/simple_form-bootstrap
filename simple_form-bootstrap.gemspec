@@ -25,6 +25,9 @@ SUMMARY
   s.add_dependency 'activemodel', '~> 4.0'
   s.add_dependency 'actionpack', '~> 4.0'
 
+  s.add_development_dependency 'rspec', '~> 3'
+  s.add_development_dependency 'rspec-rails', '~> 3'
+
   if s.respond_to? :required_rubygems_version=
     s.required_rubygems_version = Gem::Requirement.new('>= 0')
   end
