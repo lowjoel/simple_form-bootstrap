@@ -9,8 +9,8 @@ Integrating Bootstrap-looking form controls with Simple Form.
     that the control is included in your `application.js` _before_ the Simple Form-Bootstrap
     JavaScript.
 
-    a. If you want to use Date/Time pickers, install the `bootstrap3-datetimepicker-rails` gem.
-    b. If you want to use the nicely styled Bootstrap Select picker, install the
+    1. If you want to use Date/Time pickers, install the `bootstrap3-datetimepicker-rails` gem.
+    2. If you want to use the nicely styled Bootstrap Select picker, install the
        `bootstrap-select-rails` gem.
 
  2. Add to your application's javascript: `//= require simple_form-bootstrap`
