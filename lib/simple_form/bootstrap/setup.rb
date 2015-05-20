@@ -10,8 +10,10 @@ module SimpleForm::Bootstrap::Setup
   private
 
   def configure_simple_form(config)
+    config.error_notification_tag = :div
     config.error_notification_class = 'alert alert-danger'
     config.button_class = 'btn'
+    config.boolean_style = :nested
     config.boolean_label_class = nil
 
     config.wrappers :vertical_form, tag: 'div', class: 'form-group',
