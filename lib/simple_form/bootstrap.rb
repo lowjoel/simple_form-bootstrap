@@ -14,10 +14,6 @@ module SimpleForm::Bootstrap
 
   # Configuration options
   extend SimpleForm::Bootstrap::Setup
-
-  # Method used to tidy up errors.
-  mattr_accessor :error_method
-  @@error_method = :first
 end
 
 if defined?(Rails)
