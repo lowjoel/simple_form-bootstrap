@@ -30,6 +30,9 @@ SUMMARY
   s.add_development_dependency 'rspec-rails', '~> 3'
   s.add_development_dependency 'rspec-html-matchers'
 
+  s.add_development_dependency 'coveralls'
+  s.add_development_dependency 'codeclimate-test-reporter'
+
   if s.respond_to? :required_rubygems_version=
     s.required_rubygems_version = Gem::Requirement.new('>= 0')
   end
