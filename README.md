@@ -1,4 +1,4 @@
-simple_form-bootstrap
+simple_form-bootstrap [![Build Status](https://travis-ci.org/lowjoel/simple_form-bootstrap.svg?branch=master)](https://travis-ci.org/lowjoel/simple_form-bootstrap) [![Coverage Status](https://coveralls.io/repos/lowjoel/simple_form-bootstrap/badge.svg)](https://coveralls.io/r/lowjoel/simple_form-bootstrap) [![Code Climate](https://codeclimate.com/github/lowjoel/simple_form-bootstrap/badges/gpa.svg)](https://codeclimate.com/github/lowjoel/simple_form-bootstrap)
 ===
 Integrating Bootstrap-looking form controls with Simple Form.
 
