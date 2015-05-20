@@ -10,7 +10,7 @@ require 'rspec/rails'
 
 require 'simple_form'
 require 'simple_form/bootstrap'
-SimpleForm::Bootstrap.setup do; end
+SimpleForm.setup do; end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

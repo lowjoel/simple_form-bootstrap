@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SimpleForm::Bootstrap do
+RSpec.describe SimpleForm do
   describe '.setup' do
     it 'yields self' do
      result = nil
