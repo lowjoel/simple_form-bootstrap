@@ -50,6 +50,14 @@ RSpec.describe 'button', type: :view do
     end
   end
 
+  context 'when a button size is specified' do
+    let(:button_class) { ['btn-lg'] }
+    let(:button_options) { { class: button_class } }
+    it 'includes the btn-default class' do
+      expect(rendered).to have_tag('button.btn.btn-default.btn-lg', text: button_text)
+    end
+  end
+
   context 'when creating a submit button' do
     let(:button_type) { :submit }
     context 'when no button class is specified' do
