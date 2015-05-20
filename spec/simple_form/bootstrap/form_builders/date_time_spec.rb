@@ -26,7 +26,6 @@ RSpec.describe 'date_time', type: :view do
     end
   end
 
-  let(:object) { DateTimeModel.new('datetime') }
   subject! do
     simple_form_for object, url: 'test' do |f|
       f.input :test
@@ -35,6 +34,7 @@ RSpec.describe 'date_time', type: :view do
   end
 
   context 'when the database column is a datetime' do
+    let(:object) { DateTimeModel.new('datetime') }
     it 'displays the text field' do
       expect(rendered).to have_tag('div.form-group.bootstrap_date_time') do
         with_tag('input.bootstrap_date_time', with: { value: object.test })
@@ -48,6 +48,22 @@ RSpec.describe 'date_time', type: :view do
       expect(rendered).to have_tag(selector, with: required_style) do
         with_tag('input.bootstrap_date_time', with: { type: 'hidden' })
       end
+    end
+  end
+
+  context 'when the database column is a date' do
+    let(:object) { DateTimeModel.new('date') }
+    it 'displays the text field' do
+      expect(rendered).to have_tag('div.form-group.bootstrap_date') do
+        with_tag('input.bootstrap_date', with: { value: object.test })
+      end
+    end
+  end
+
+  context 'when the database column is not a datetime' do
+    let(:object) { DateTimeModel.new('string') }
+    it 'does not have a  datepicker control' do
+      expect(rendered).not_to have_tag('div.form-group.bootstrap_date_time')
     end
   end
 end
