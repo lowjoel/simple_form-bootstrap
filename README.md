@@ -16,12 +16,14 @@ Integrating Bootstrap-looking form controls with Simple Form.
        `bootstrap-select-rails` gem.
 
  2. Add to your application's javascript: `//= require simple_form-bootstrap`
- 3. Create a new initializer:
+ 3. Empty the Simple Form initializer:
     ```ruby
-# config/initializers/simple_form_bootstrap.rb
+# config/initializers/simple_form.rb
 # Use this setup block to configure all options available in SimpleForm.
-SimpleForm::Bootstrap.setup do |config|
-
+SimpleForm.setup do |config|
 end
     ```
+
+    1. You can still put configuration settings in, but it should no longer be necessary.
+
  4. Restart your development server.
