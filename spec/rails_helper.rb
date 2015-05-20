@@ -1,18 +1,16 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
+require 'rails'
 require 'action_view'
 require 'action_controller'
 require 'active_model'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
-module Rails
-  def self.env
-    ActiveSupport::StringInquirer.new('test')
-  end
-end
 require 'simple_form'
+require 'simple_form/bootstrap'
+SimpleForm::Bootstrap.setup do; end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
