@@ -9,5 +9,8 @@ matrix:
     - rvm: ruby-head
 bundler_args: "--jobs=3 --retry=3 --without development:production"
 
+before_install:
+  - bundle config build.nokogiri --use-system-libraries
+
 script:
   - bundle exec rake spec
