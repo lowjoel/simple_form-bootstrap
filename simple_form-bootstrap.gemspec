@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name = 'simple_form-bootstrap'
   s.version = SimpleForm::Bootstrap::VERSION
   s.authors = ['Joel Low']
-  s.date = '2015-01-12'
+  s.date = '2015-05-20'
   s.email = 'joel@joelsplace.sg'
   s.files = ['Rakefile'] + Dir['{app,lib,test}/**/*']
   s.test_files = Dir['test/**/*']

@@ -1,4 +1,4 @@
-## master
+## 1.1.0
 
 ### enhancements
   * There is no longer a need to retain a Simple Form initialiser, as well as a Simple 
