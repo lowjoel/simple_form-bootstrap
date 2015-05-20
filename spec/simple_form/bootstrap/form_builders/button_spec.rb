@@ -13,12 +13,13 @@ RSpec.describe 'button', type: :view do
     end
   end
 
+  let(:button_type) { :button }
   let(:button_text) { 'Button!' }
   let(:button_options) { {} }
   subject! do
     object = Button.new
     simple_form_for object, url: 'test' do |f|
-      f.button :button, button_text, button_options
+      f.button button_type, button_text, button_options
     end
     render text: output_buffer
   end
@@ -46,6 +47,17 @@ RSpec.describe 'button', type: :view do
 
     it 'includes the specified button type' do
       expect(rendered).to have_tag('button.btn.btn-primary', text: button_text)
+    end
+  end
+
+  context 'when creating a submit button' do
+    let(:button_type) { :submit }
+    context 'when no button class is specified' do
+      let(:button_class) { ['btn-primary'] }
+      let(:button_options) { { class: button_class } }
+      it 'includes the btn-primary class' do
+        expect(rendered).to have_tag('input.btn.btn-primary', with: { value: button_text })
+      end
     end
   end
 end
