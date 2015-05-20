@@ -16,6 +16,34 @@ module SimpleForm::Bootstrap::Setup
     config.boolean_style = :nested
     config.boolean_label_class = nil
 
+    configure_wrappers(config)
+
+    # Wrappers for forms and inputs using the Bootstrap toolkit.
+    # Check the Bootstrap docs (http://getbootstrap.com)
+    # to learn about the different styles for forms and inputs,
+    # buttons and other elements.
+    config.default_wrapper = :vertical_form
+    config.wrapper_mappings = {
+      check_boxes: :vertical_radio_and_checkboxes,
+      radio_buttons: :vertical_radio_and_checkboxes,
+      file: :vertical_file_input,
+      boolean: :vertical_boolean,
+    }
+  end
+
+  def configure_wrappers(config)
+    configure_vertical_form_wrapper(config)
+    configure_vertical_file_input_wrapper(config)
+    configure_vertical_boolean_wrapper(config)
+    configure_vertical_radio_and_checkboxes_wrapper(config)
+    configure_horizontal_form_wrapper(config)
+    configure_horizontal_file_input_wrapper(config)
+    configure_horizontal_boolean_wrapper(config)
+    configure_horizontal_radio_and_checkboxes_wrapper(config)
+    configure_inline_form_wrapper(config)
+  end
+
+  def configure_vertical_form_wrapper(config)
     config.wrappers :vertical_form, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -30,7 +58,9 @@ module SimpleForm::Bootstrap::Setup
       b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
       b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
+  end
 
+  def configure_vertical_file_input_wrapper(config)
     config.wrappers :vertical_file_input, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -43,7 +73,9 @@ module SimpleForm::Bootstrap::Setup
       b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
       b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
+  end
 
+  def configure_vertical_boolean_wrapper(config)
     config.wrappers :vertical_boolean, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -56,7 +88,9 @@ module SimpleForm::Bootstrap::Setup
       b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
       b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
+  end
 
+  def configure_vertical_radio_and_checkboxes_wrapper(config)
     config.wrappers :vertical_radio_and_checkboxes, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -66,7 +100,9 @@ module SimpleForm::Bootstrap::Setup
       b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
       b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
+  end
 
+  def configure_horizontal_form_wrapper(config)
     config.wrappers :horizontal_form, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -83,7 +119,9 @@ module SimpleForm::Bootstrap::Setup
         ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
       end
     end
+  end
 
+  def configure_horizontal_file_input_wrapper(config)
     config.wrappers :horizontal_file_input, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -98,7 +136,9 @@ module SimpleForm::Bootstrap::Setup
         ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
       end
     end
+  end
 
+  def configure_horizontal_boolean_wrapper(config)
     config.wrappers :horizontal_boolean, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -113,7 +153,9 @@ module SimpleForm::Bootstrap::Setup
         wr.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
       end
     end
+  end
 
+  def configure_horizontal_radio_and_checkboxes_wrapper(config)
     config.wrappers :horizontal_radio_and_checkboxes, tag: 'div', class: 'form-group',
                     error_class: 'has-error' do |b|
       b.use :html5
@@ -127,7 +169,9 @@ module SimpleForm::Bootstrap::Setup
         ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
       end
     end
+  end
 
+  def configure_inline_form_wrapper(config)
     config.wrappers :inline_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
       b.use :html5
       b.use :placeholder
@@ -141,17 +185,5 @@ module SimpleForm::Bootstrap::Setup
       b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
       b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
-
-    # Wrappers for forms and inputs using the Bootstrap toolkit.
-    # Check the Bootstrap docs (http://getbootstrap.com)
-    # to learn about the different styles for forms and inputs,
-    # buttons and other elements.
-    config.default_wrapper = :vertical_form
-    config.wrapper_mappings = {
-      check_boxes: :vertical_radio_and_checkboxes,
-      radio_buttons: :vertical_radio_and_checkboxes,
-      file: :vertical_file_input,
-      boolean: :vertical_boolean,
-    }
   end
 end
