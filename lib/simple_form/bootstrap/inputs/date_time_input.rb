@@ -9,24 +9,25 @@ class SimpleForm::Bootstrap::Inputs::DateTimeInput < SimpleForm::Inputs::Base
     # Integrate with Bootstrap's styling
     text_field_options[:class]    << 'form-control'
 
-    hidden_field_options           = text_field_options.dup
-    hidden_field_options[:class]   = text_field_options[:class].dup # so they won't work with same array object
+    hidden_field_options           = text_field_options.deep_dup
+    hidden_field_options[:class]  << 'bootstrap-datepicker'
+    hidden_field_options[:class]  << 'bootstrap-timepicker' if input_type == :bootstrap_date_time
     hidden_field_options[:id]      = "#{attribute_name}_hidden"
-    hidden_field_options[:value] ||= value(object).try(:to_s)
-    text_field_options[:class]    << 'bootstrap-datepicker'
-    text_field_options[:class]    << 'bootstrap-timepicker' if input_type == :bootstrap_date_time
-    text_field_options[:value]   ||= format_date(value(object), format)
-    text_field_options[:data]      = { 'date-format' => strftime_to_momentjs_format(format) }
+    hidden_field_options[:value] ||= format_date(value(object), format)
+    hidden_field_options[:data]    = { 'date-format' => strftime_to_momentjs_format(format) }
 
-    text_field_group_classes       = text_field_options[:class].dup
-    text_field_group_classes.delete('form-control')
+    hidden_field_group_classes     = hidden_field_options[:class].dup
+    hidden_field_group_classes.delete('form-control')
+
+    
+    text_field_options[:value]   ||= value(object).try(:to_s)
 
     return_string = <<-END_INPUT
-      <div class="input-group #{text_field_group_classes.join(' ')}" style="display: none">
-        #{@builder.hidden_field(attribute_name, text_field_options.to_hash)}
+      <div class="input-group #{hidden_field_group_classes.join(' ')}" style="display: none">
+        #{@builder.hidden_field(attribute_name, hidden_field_options.to_hash)}
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
       </div>
-      #{@builder.text_field(attribute_name, hidden_field_options.to_hash)}
+      #{@builder.text_field(attribute_name, text_field_options.to_hash)}
     END_INPUT
     return_string.html_safe
   end
