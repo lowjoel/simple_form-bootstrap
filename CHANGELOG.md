@@ -3,6 +3,12 @@
 ### enhancements
 
 ### bug fixes
+
+## 1.1.1
+
+### enhancements
+
+### bug fixes
   * The proper ID for date/time pickers should be generated for non-JavaScript aware browsers first;
     Browsers with JavaScript would reassign the label to the hidden date/time picker. This fixes
     tests written using Capybara, without JavaScript support.
