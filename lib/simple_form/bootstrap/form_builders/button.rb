@@ -19,6 +19,24 @@ module SimpleForm::Bootstrap::FormBuilders::Button
 
     super(type, *args, &proc)
   end
+
+  # Creates a submit button.
+  #
+  # This augments the original button implementation to generate a button element
+  # with a submit action when a block is given. Otherwise, it falls back to the
+  # original submit helper.
+  def submit_button(*args, &block)
+    if block_given?
+      options = args.extract_options!.dup
+      options[:type] = :submit
+      options[:name] ||= 'commit'
+      args << options
+      button_button(options, &block)
+    else
+      submit(*args)
+    end
+  end
+
 end
 
 SimpleForm::FormBuilder.class_eval do

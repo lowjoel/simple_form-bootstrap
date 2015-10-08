@@ -1,6 +1,8 @@
 ## master
 
 ### enhancements
+  * It allows `submit` buttons to accept blocks. When a block is specified, the submit button will
+    use a \<button> tag instead of an \<input> tag. [@lowjoel](https://github.com/lowjoel)
 
 ### bug fixes
 

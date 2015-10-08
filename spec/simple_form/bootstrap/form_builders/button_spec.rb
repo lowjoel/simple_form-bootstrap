@@ -16,10 +16,11 @@ RSpec.describe 'button', type: :view do
   let(:button_type) { :button }
   let(:button_text) { 'Button!' }
   let(:button_options) { {} }
+  let(:button_block) { nil }
   subject! do
     object = Button.new
     simple_form_for object, url: 'test' do |f|
-      f.button button_type, button_text, button_options
+      f.button button_type, button_text, button_options, &button_block
     end
     render text: output_buffer
   end
@@ -65,6 +66,19 @@ RSpec.describe 'button', type: :view do
       let(:button_options) { { class: button_class } }
       it 'includes the btn-primary class' do
         expect(rendered).to have_tag('input.btn.btn-primary', with: { value: button_text })
+      end
+    end
+
+    context 'when a block is given' do
+      let(:proc_text) { 'I am in the proc!' }
+      let(:button_block) do
+        proc do
+          proc_text
+        end
+      end
+
+      it 'renders the block' do
+        expect(rendered).to have_tag('button', text: proc_text)
       end
     end
   end

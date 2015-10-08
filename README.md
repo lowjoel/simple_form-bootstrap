@@ -27,3 +27,10 @@ end
     1. You can still put configuration settings in, but it should no longer be necessary.
 
  4. Restart your development server.
+
+## Features
+
+ 1. It adds the appropriate button styling to all buttons. By default, the `btn` and `btn-default`
+    styles are added to all buttons. Submit buttons get `btn-primary` instead of `btn-default`.
+ 2. It allows `submit` buttons to accept blocks. When a block is specified, the submit button will
+    use a \<button> tag instead of an \<input> tag.
