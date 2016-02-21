@@ -7,8 +7,8 @@
     var datePickers = $('input.bootstrap-datepicker', node);
     datePickers.datetimepicker();
 
-    // Enable our styled Bootstrap select controls, except Twitter Typeahead controls.
-    var selects = $('select.form-control:not(.typeahead)', node);
+    // Enable our styled Bootstrap select controls, only when using the default select collection.
+    var selects = $('select.select.form-control', node);
     selects.selectpicker();
   }
 

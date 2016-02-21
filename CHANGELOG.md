@@ -3,6 +3,8 @@
 ### enhancements
 
 ### bug fixes
+ * Do not change selects to the Bootstrap select class unless they are explicitly select fields. 
+   Other types of controls also give select fields -- typeaheads and the like.
 
 ## 1.2.0
 
