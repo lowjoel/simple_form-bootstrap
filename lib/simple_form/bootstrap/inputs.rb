@@ -3,5 +3,6 @@ module SimpleForm::Bootstrap::Inputs
 
   eager_autoload do
     autoload :DateTimeInput
+    autoload :TokenInput
   end
 end

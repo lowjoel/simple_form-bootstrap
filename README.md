@@ -14,6 +14,20 @@ Integrating Bootstrap-looking form controls with Simple Form.
     1. If you want to use Date/Time pickers, install the `bootstrap3-datetimepicker-rails` gem.
     2. If you want to use the nicely styled Bootstrap Select picker, install the
        `bootstrap-select-rails` gem.
+    3. If you want to use the Token picker, you need to
+       a. Install the `bootstrap_tokenfield_rails` and `twitter-typeahead-rails` gems.
+       b. Require `twitter/typeahead` and `bootstrap-tokenfield` in that order in `application.js`.
+       c. Require `tokenfield-typeahead` and `bootstrap-tokenfield` in that order in
+          `application.css`.
+       d. These extra `@extend`s are needed for Typeahead.js 0.11:
+          ```scss
+          .tt-menu {
+            @extend .tt-dropdown-menu;
+          }
+          .tt-suggestion.tt-selectable:hover {
+            @extend .tt-suggestion.tt-cursor;
+          }
+          ```
 
  2. Add to your application's javascript: `//= require simple_form-bootstrap`
  3. Empty the Simple Form initializer:

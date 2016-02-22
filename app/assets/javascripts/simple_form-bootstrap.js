@@ -1,4 +1,5 @@
 //= require simple_form-bootstrap/date_time_input
+//= require simple_form-bootstrap/token_input
 
 (function($) {
   'use strict';
@@ -10,6 +11,10 @@
     // Enable our styled Bootstrap select controls, only when using the default select collection.
     var selects = $('select.select.form-control', node);
     selects.selectpicker();
+
+    // Token fields for select inputs.
+    var tokenfields = $('.token select.token', node);
+    tokenfields.tokenfield();
   }
 
   $(document).on('ready', function(e) {
