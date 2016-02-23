@@ -1,4 +1,5 @@
 //= require simple_form-bootstrap/date_time_input
+//= require simple_form-bootstrap/select_input
 //= require simple_form-bootstrap/token_input
 
 (function($) {

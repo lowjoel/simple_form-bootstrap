@@ -6,7 +6,7 @@
     return;
   }
 
-  $.fn.selectpicker = function(arg) {
-    return methods.initialise.call(this, arg);
+  $.fn.selectpicker = function() {
+    return this;
   };
 }(jQuery));
