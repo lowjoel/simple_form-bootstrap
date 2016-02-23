@@ -1,6 +1,12 @@
 ## master
 
 ### enhancements
+
+### bug fixes
+
+## 1.3.0
+
+### enhancements
  * Implement support for token fields. Use the `as: :token` on a Simple Form input field.
 
 ### bug fixes
