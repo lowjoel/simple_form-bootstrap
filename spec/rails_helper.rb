@@ -12,6 +12,10 @@ require 'simple_form'
 require 'simple_form/bootstrap'
 SimpleForm.setup do; end
 
+class TestApplication < Rails::Application
+  secrets.secret_key_base = SecureRandom.base64(10)
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
