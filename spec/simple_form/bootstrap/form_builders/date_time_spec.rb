@@ -14,7 +14,11 @@ RSpec.describe 'date_time', type: :view do
     end
 
     def column_for_attribute(*)
-      Struct.new([:sql_type, :type].sample).new(@column_sql_type)
+      if @column_sql_type.is_a?(Symbol)
+        Struct.new(:type).new(@column_sql_type)
+      else
+        Struct.new(:sql_type).new(@column_sql_type)
+      end
     end
 
     def has_attribute?(*)
@@ -34,28 +38,32 @@ RSpec.describe 'date_time', type: :view do
   end
 
   context 'when the database column is a datetime' do
-    let(:object) { DateTimeModel.new(['datetime', :datetime].sample) }
-    it 'displays the text field' do
-      expect(rendered).to have_tag('div.form-group.bootstrap_date_time') do
-        with_tag('input.bootstrap_date_time', with: { value: object.test })
+    ['datetime', :datetime].each do |type|
+      let(:object) { DateTimeModel.new(type) }
+      it 'displays the text field' do
+        expect(rendered).to have_tag('div.form-group.bootstrap_date_time') do
+          with_tag('input.bootstrap_date_time', with: { value: object.test })
+        end
       end
-    end
 
-    it 'has a hidden datepicker control' do
-      selector = 'div.form-group.bootstrap_date_time div.input-group'
-      required_style = { style: 'display: none' }
+      it 'has a hidden datepicker control' do
+        selector = 'div.form-group.bootstrap_date_time div.input-group'
+        required_style = { style: 'display: none' }
 
-      expect(rendered).to have_tag(selector, with: required_style) do
-        with_tag('input.bootstrap_date_time', with: { type: 'hidden' })
+        expect(rendered).to have_tag(selector, with: required_style) do
+          with_tag('input.bootstrap_date_time', with: { type: 'hidden' })
+        end
       end
     end
   end
 
   context 'when the database column is a date' do
-    let(:object) { DateTimeModel.new(['date', :date].sample) }
-    it 'displays the text field' do
-      expect(rendered).to have_tag('div.form-group.bootstrap_date') do
-        with_tag('input.bootstrap_date', with: { value: object.test })
+    ['date', :date].each do |type|
+      let(:object) { DateTimeModel.new(type) }
+      it 'displays the text field' do
+        expect(rendered).to have_tag('div.form-group.bootstrap_date') do
+          with_tag('input.bootstrap_date', with: { value: object.test })
+        end
       end
     end
   end
