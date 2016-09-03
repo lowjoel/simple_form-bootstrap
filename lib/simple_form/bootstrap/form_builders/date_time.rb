@@ -1,18 +1,21 @@
 module SimpleForm::Bootstrap::FormBuilders::DateTime
   DATE_TIME_COLUMN_TYPES = [
+    :datetime,
     'datetime',
     'timestamp',
     'timestamp without time zone'
   ].freeze
 
   DATE_COLUMN_TYPES = [
+    :date,
     'date'
   ].freeze
 
   def default_input_type(attribute_name, column, options, *args, &block)
     if (options.is_a?(Hash) ? options[:as] : @options[:as]).nil? && !column.nil?
-      return :bootstrap_date_time if DATE_TIME_COLUMN_TYPES.include?(column.sql_type)
-      return :bootstrap_date if DATE_COLUMN_TYPES.include?(column.sql_type)
+      type = column.respond_to?(:type) ? column.type : column.sql_type
+      return :bootstrap_date_time if DATE_TIME_COLUMN_TYPES.include?(type)
+      return :bootstrap_date if DATE_COLUMN_TYPES.include?(type)
     end
 
     super(attribute_name, column, options, *args, &block)
