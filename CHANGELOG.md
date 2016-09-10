@@ -1,8 +1,14 @@
 ## master
 
+## 1.4.0
+
 ### enhancements
+ * Fix JavaScript lints.
+ * Tests against newest Rubies.
 
 ### bug fixes
+ * Fix tests running new RSpec versions.
+ * Support Rails 5' attributes API.
 
 ## 1.3.0
 
