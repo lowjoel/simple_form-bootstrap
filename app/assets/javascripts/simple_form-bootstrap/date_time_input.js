@@ -32,7 +32,7 @@
       this.attr('type', 'text');
       this.parent().css('display', '');
       this.parent().next('input[type=text]').attr('type', 'hidden');
-      this.parent().prev('label').attr('for', this.attr('id'))
+      this.parent().prev('label').attr('for', this.attr('id'));
 
       return this;
     },
