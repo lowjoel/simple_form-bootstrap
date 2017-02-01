@@ -62,16 +62,22 @@
   $.fn.datetimepicker.defaults = oldDateTimePicker.defaults;
 
   // Ensure that the dates are properly formatted in the text field.
-  $(document).on('dp.change dp.show', '.bootstrap-datepicker:' +
+  $(document).on('dp.change', '.bootstrap-datepicker:' +
   'not(.bootstrap-timepicker)', function (e) {
     var date = e.date;
-    var rails_date_format = date.format(DATE_FORMAT);
+    var rails_date_format = '';
+    if (date) {
+      rails_date_format = date.format(DATE_FORMAT);
+    }
     $(this).next('input[type=hidden]').val(rails_date_format);
   });
 
-  $(document).on('dp.change dp.show', '.bootstrap-timepicker', function (e) {
+  $(document).on('dp.change', '.bootstrap-timepicker', function (e) {
     var date = e.date;
-    var rails_date_format = date.format(DATETIME_FORMAT);
+    var rails_date_format = '';
+    if (date) {
+      rails_date_format = date.format(DATETIME_FORMAT);
+    }
     $(this).next('input[type=hidden]').val(rails_date_format);
   });
 }(jQuery));
