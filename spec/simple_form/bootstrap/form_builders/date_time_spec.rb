@@ -34,7 +34,7 @@ RSpec.describe 'date_time', type: :view do
     simple_form_for object, url: 'test' do |f|
       f.input :test
     end
-    render text: output_buffer
+    render html: output_buffer
   end
 
   context 'when the database column is a datetime' do
