@@ -27,7 +27,7 @@ RSpec.describe 'token', type: :view do
       f.association :tokens, as: :token, collection: token_collection,
                              label_method: :text, value_method: :value
     end
-    render text: output_buffer
+    render html: output_buffer
   end
 
   it 'displays the select' do

@@ -22,7 +22,7 @@ RSpec.describe 'button', type: :view do
     simple_form_for object, url: 'test' do |f|
       f.button button_type, button_text, button_options, &button_block
     end
-    render text: output_buffer
+    render html: output_buffer
   end
 
   it 'displays the button' do
