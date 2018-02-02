@@ -18,7 +18,7 @@
     tokenfields.tokenfield();
   }
 
-  $(document).on('ready', function() {
+  $(function() {
     initializeComponents(document);
   });
   $(document).on('DOMNodeInserted', function(e) {
