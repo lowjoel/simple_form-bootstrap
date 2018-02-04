@@ -15,11 +15,11 @@ Integrating Bootstrap-looking form controls with Simple Form.
     2. If you want to use the nicely styled Bootstrap Select picker, install the
        `bootstrap-select-rails` gem.
     3. If you want to use the Token picker, you need to
-       a. Install the `bootstrap_tokenfield_rails` and `twitter-typeahead-rails` gems.
-       b. Require `twitter/typeahead` and `bootstrap-tokenfield` in that order in `application.js`.
-       c. Require `tokenfield-typeahead` and `bootstrap-tokenfield` in that order in
+       1. Install the `bootstrap_tokenfield_rails` and `twitter-typeahead-rails` gems.
+       2. Require `twitter/typeahead` and `bootstrap-tokenfield` in that order in `application.js`.
+       3. Require `tokenfield-typeahead` and `bootstrap-tokenfield` in that order in
           `application.css`.
-       d. These extra `@extend`s are needed for Typeahead.js 0.11:
+       4. These extra `@extend`s are needed for Typeahead.js 0.11:
           ```scss
           .tt-menu {
             @extend .tt-dropdown-menu;
@@ -32,10 +32,10 @@ Integrating Bootstrap-looking form controls with Simple Form.
  2. Add to your application's javascript: `//= require simple_form-bootstrap`
  3. Empty the Simple Form initializer:
     ```ruby
-# config/initializers/simple_form.rb
-# Use this setup block to configure all options available in SimpleForm.
-SimpleForm.setup do |config|
-end
+    # config/initializers/simple_form.rb
+    # Use this setup block to configure all options available in SimpleForm.
+    SimpleForm.setup do |config|
+    end
     ```
 
     1. You can still put configuration settings in, but it should no longer be necessary.
