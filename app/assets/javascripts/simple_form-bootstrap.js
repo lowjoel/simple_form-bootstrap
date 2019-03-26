@@ -22,7 +22,9 @@
     initializeComponents(document);
   });
   $(document).on('DOMNodeInserted', function(e) {
-    initializeComponents(e.target);
+    if (['FIELDSET', 'HTML'].indexOf(e.target.parentNode.tagName) === -1) {
+      initializeComponents(e.target)
+    }
   });
   $(document).on('nested:fieldAdded', function(e) {
     initializeComponents(e.field);
