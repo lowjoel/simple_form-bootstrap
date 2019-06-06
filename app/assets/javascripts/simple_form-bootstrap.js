@@ -21,10 +21,8 @@
   $(function() {
     initializeComponents(document);
   });
-  $(document).on('DOMNodeInserted', function(e) {
-    if (['FIELDSET', 'HTML'].indexOf(e.target.parentNode.tagName) === -1) {
-      initializeComponents(e.target)
-    }
+  $(document).on('MutationObserver', function(e) {
+    initializeComponents(e.target);
   });
   $(document).on('nested:fieldAdded', function(e) {
     initializeComponents(e.field);
